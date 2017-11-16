@@ -1,0 +1,11 @@
+.float-right{
+    float: right;
+    margin: .5em;
+}
+table{
+    border: 3px solid black;
+
+}
+/* td{
+    border: 3px solid black;
+} */

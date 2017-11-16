@@ -1,0 +1,33 @@
+<button [routerLink]="['/dashboard']" class='float-right'>Cancel</button>
+question must be at least 8 letters and options must be at least 3
+<div>
+  <form (submit)='createPoll()'>
+    <div>
+      <label>Question</label>
+      <input type="text" name="question" [(ngModel)]='newPoll.question'>
+    </div>
+    <div>
+      <label>Option 1</label>
+      <input type="text" name="option1" [(ngModel)]='newPoll.option1.option'>
+    </div>
+    <div>
+      <label>Option 2</label>
+      <input type="text" name="option2" [(ngModel)]='newPoll.option2.option'>
+    </div>
+    <div>
+      <label>Option 3</label>
+      <input type="text" name="option3" [(ngModel)]='newPoll.option3.option'>
+    </div>
+    <div>
+      <label>Option 4</label>
+      <input type="text" name="option4" [(ngModel)]='newPoll.option4.option'>
+    </div>
+    <p>NOTE: I have backend validations for the polls, but think the ngIf works better. So I did both. =) <br> The ngIf only checks the options length just in case you wanted to see some kind of validations then just leave question blank and submit.</p>
+    <div *ngIf='newPoll.option1.option.length > 2 && newPoll.option2.option.length > 2 && newPoll.option3.option.length > 2 && newPoll.option4.option.length > 2'>
+      <input type="submit" value="Create Poll">
+    </div>
+  </form>
+  <div>
+    <p [ngStyle]="{'color': 'red'}" *ngFor="let error of errors">{{ error }}</p>
+  </div>
+</div>
